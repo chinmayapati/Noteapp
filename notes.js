@@ -1,6 +1,7 @@
 const fs = require('fs');
 const _ = require('lodash');
 
+/* Utility functions */
 var fetchNotes = (filename) => {
     var notes = [];
     try {
@@ -14,9 +15,17 @@ var writeNotes = (filename, obj) => {
     fs.writeFileSync(filename, JSON.stringify(obj));   
 }
 
+var printNote = (note) => {
+    console.log("-------");
+    console.log(`Title: ${note.title}`);
+    console.log(`Body: ${note.body}`);
+    console.log("-------");
+}
+
+/* Command functions */
 var addNote = (title, body) => {
 
-    if( title!=undefined && body!=undefined ) {
+    if( title && body ) {
         
         var notes = fetchNotes('notes-db.json');
         
@@ -39,7 +48,7 @@ var addNote = (title, body) => {
 
 var removeNote = (title) => {
     
-    if( title!=undefined ) {
+    if( title ) {
         var notes = fetchNotes('notes-db.json');
         var filterNotes = notes.filter( (n) => n.title!=title );
         writeNotes('notes-db.json', filterNotes);
@@ -53,10 +62,16 @@ var removeNote = (title) => {
 }
 
 var getNote = (title) => {
-    if( title!=undefined ) {
-        console.log("Getting note from title");
+
+    if( title ) {
+        var notes = fetchNotes('notes-db.json');
+        var note = notes.filter( (n) => n.title===title );
+        if( note[0] ) {
+            printNote(note[0]);
+        } else console.log(`No note found with Title:${title}`);
     }
     else console.log("Unable to getNote: missing title");
+
 }
 
 var listAll = () => {
