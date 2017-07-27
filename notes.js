@@ -1,4 +1,5 @@
 const fs = require('fs');
+const _ = require('lodash');
 
 var fetchNotes = (filename) => {
     var notes = [];
@@ -39,7 +40,14 @@ var addNote = (title, body) => {
 var removeNote = (title) => {
     
     if( title!=undefined ) {
-        console.log(`Removing note with title:${title}`);
+        var notes = fetchNotes('notes-db.json');
+        var filterNotes = notes.filter( (n) => n.title!=title );
+        writeNotes('notes-db.json', filterNotes);
+        
+        // if sizes of new and old array differs, it's deleted else no such title
+        if( notes.length !== filterNotes.length ) {
+            console.log(`Removed note with Title:${title}`);
+        } else console.log(`No note found with Title:${title}`);
     }
     else console.log("Unable to remove: missing title");
 }
