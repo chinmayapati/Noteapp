@@ -3,15 +3,15 @@ const yargs = require("yargs");
 
 const argv = yargs.argv;
 
-var command = argv["_"][0];
+var command = argv._[0];
 
 if( argv["_"].length > 1 ) {
     console.log("Invalid Command");
     process.exit(1);
 }
 
-var title = argv['title'];
-var body = argv['body'];
+var title = argv.title;
+var body = argv.body;
 
 if( command === "add" ) {
     notes.addNote(title, body);
@@ -22,7 +22,7 @@ else if( command === "remove" ) {
 else if( command === "list" ) {
     notes.listAll();
 }
-else if( command === "getnote" ) {
+else if( command === "read" ) {
     notes.getNote(title);
 }
 else console.log("Invalid Command!");
