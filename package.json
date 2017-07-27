@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/chinmayapati/Noteapp/issues"
   },
-  "homepage": "https://github.com/chinmayapati/Noteapp#readme"
+  "homepage": "https://github.com/chinmayapati/Noteapp#readme",
+  "dependencies": {
+    "yargs": "^8.0.2"
+  }
 }

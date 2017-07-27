@@ -1,5 +1,4 @@
 const fs = require('fs');
-const _ = require('lodash');
 
 /* Utility functions */
 var fetchNotes = () => {
@@ -16,10 +15,10 @@ var writeNotes = (obj) => {
 }
 
 var printNote = (note) => {
-    console.log("-------");
+    console.log("--");
     console.log(`Title: ${note.title}`);
     console.log(`Body: ${note.body}`);
-    console.log("-------\n");
+    console.log("\n");
 }
 
 var printUsage = () => {
