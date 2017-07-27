@@ -34,4 +34,4 @@ $ npm install
  Welcoming thoughts [at] chinmaya.cp@gmail.com
  
  ## License
- NA
+ **NA**
