@@ -10,7 +10,7 @@ $ npm install
 ```
 
 ## Usage
-```node app.js [action] {arguments}```
+```node app.js [command] {arguments}```
 
 **action :**
   - **add** : adds a note
