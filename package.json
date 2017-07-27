@@ -1,0 +1,19 @@
+{
+  "name": "noteapp",
+  "version": "1.0.0",
+  "description": "A cli app to store notes",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chinmayapati/Noteapp.git"
+  },
+  "author": "Chinmaya Pati",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chinmayapati/Noteapp/issues"
+  },
+  "homepage": "https://github.com/chinmayapati/Noteapp#readme"
+}
