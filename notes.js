@@ -56,5 +56,5 @@ var listAll = () => {
 }
 
 module.exports = {
-    addNote, removeNote, listAll
+    addNote, removeNote, listAll, getNote
 };
