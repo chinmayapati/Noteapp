@@ -1,4 +1,4 @@
-# Noteapp
+# Noteapp v1.0
 A CLI Noteapp using nodejs
 
 ## Setup
