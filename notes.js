@@ -21,17 +21,11 @@ var printNote = (note) => {
     console.log("\n");
 }
 
-var printUsage = () => {
-    console.log("Usage:  node app.js [command] {arguments}");
-    console.log("\tcommand: add, remove, read, list");
-    console.log("\targuments: title, body");
-    console.log("Check full documentation [at] https://github.com/chinmayapati/Noteapp");
-}
 
 /* Command functions */
 var addNote = (title, body) => {
 
-    if( title && body ) {
+    if( !title && !body ) {
         
         var notes = fetchNotes();
         
@@ -48,15 +42,12 @@ var addNote = (title, body) => {
 
     } 
 
-    else {
-        console.log("Unable to add: missing title/body");
-        printUsage();
-    }
+    else console.log("Unable to add: missing title/body");
 }
 
 var removeNote = (title) => {
     
-    if( title ) {
+    if( !title ) {
         var notes = fetchNotes();
         var filterNotes = notes.filter( (n) => n.title!=title );
         writeNotes(filterNotes);
@@ -66,15 +57,12 @@ var removeNote = (title) => {
             console.log(`Removed note with Title:${title}`);
         } else console.log(`No note found with Title:${title}`);
     }
-    else {
-        console.log("Unable to remove: missing title");
-        printUsage();
-    }
+    else console.log("Unable to remove: missing title");
 }
 
 var getNote = (title) => {
 
-    if( title ) {
+    if( !title ) {
         var notes = fetchNotes('notes-db.json');
         var note = notes.filter( (n) => n.title===title );
         if( note[0] ) {
@@ -83,13 +71,12 @@ var getNote = (title) => {
     }
     else {
         console.log("Unable to getNote: missing title");
-        printUsage();
     }
 }
 
 var listAll = () => {
     var notes = fetchNotes();
-    var count=1; 
+    var count = 1; 
     notes.forEach( (note) => {
         console.log(`Note: ${count++}`);
         printNote(note);
@@ -97,5 +84,5 @@ var listAll = () => {
 }
 
 module.exports = {
-    addNote, removeNote, listAll, getNote, printUsage
+    addNote, removeNote, listAll, getNote
 };

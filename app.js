@@ -1,36 +1,41 @@
 const notes = require('./notes');
 const yargs = require("yargs");
 
-const argv = yargs.argv;
+var title = {
+    describe: 'Title of note',
+    demand: true,
+    alias: 't'
+};
+
+var body = {
+    describe: 'Body of note',
+    demand: true,
+    alias: 'b'
+};
+
+const argv = yargs
+    .command('add', 'Add a new note', { title, body })
+    .command('read', 'Read a note', { title })
+    .command('list', 'List all notes')
+    .command('remove', 'Remove a note', { title })
+    .help()
+    .argv;
+
 
 var command = argv._[0];
 
-if( argv._.length > 1 ) {
-    console.log("Invalid Command");
-    process.exit(1);
+if( command === "add" ) {
+    notes.addNote(argv.title, argv.body);
 }
-
-var title = argv.title;
-var body = argv.body;
-
-if( argv.h === true ) {
-    notes.printUsage();
-} 
+else if( command === "remove" ) {
+    notes.removeNote(argv.title);
+}
+else if( command === "list" ) {
+    notes.listAll();
+}
+else if( command === "read" ) {
+    notes.getNote(argv.title);
+}
 else {
-    if( command === "add" ) {
-        notes.addNote(title, body);
-    }
-    else if( command === "remove" ) {
-        notes.removeNote(title);
-    }
-    else if( command === "list" ) {
-        notes.listAll();
-    }
-    else if( command === "read" ) {
-        notes.getNote(title);
-    }
-    else {
-        console.log("Invalid Command!");
-        notes.printUsage();
-    }
+    console.log("Invalid Command!");
 }
