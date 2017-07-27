@@ -22,7 +22,10 @@ $ npm install
   - **list** : list all notes
     
     ``` $ node app.js list ```
+  - **getnote** : get note of the specified title
 
+    ``` $ node app.js getnote --title="title here" ```
+    
 **arguments :**
   - --title="title here"
   - --body="body here"

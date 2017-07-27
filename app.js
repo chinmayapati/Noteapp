@@ -22,3 +22,7 @@ else if( command === "remove" ) {
 else if( command === "list" ) {
     notes.listAll();
 }
+else if( command === "getnote" ) {
+    notes.getNote(title);
+}
+else console.log("Invalid Command!");
