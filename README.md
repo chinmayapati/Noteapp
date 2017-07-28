@@ -1,4 +1,4 @@
-# Noteapp
+# Noteapp v1.0
 A CLI Noteapp using nodejs
 
 ## Setup
@@ -27,11 +27,11 @@ $ npm install
     ``` $ node app.js read --title="title here" ```
     
 **arguments :**
-  - --title="title here"
-  - --body="body here"
+  - --title="title here" or -t="title here"
+  - --body="body here" or -b="body here"
  
  ## Hugs or Bugs
  Welcoming thoughts [at] chinmaya.cp@gmail.com
  
  ## License
- **ISC**
+ ISC
