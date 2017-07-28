@@ -21,7 +21,6 @@ var printNote = (note) => {
     console.log("\n");
 }
 
-
 /* Command functions */
 var addNote = (title, body) => {
 
